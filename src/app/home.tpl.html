@@ -1,5 +1,8 @@
 <div>
-    <button ng-click="homeController.makeRequest()">Make Request</button>
+    <button ng-click="homeController.makeRequest(false, true)">Success with local error handling</button>
+    <button ng-click="homeController.makeRequest(false, false)">Success without local error handling</button>
+    <button ng-click="homeController.makeRequest(true, true)">Fail with local error handling</button>
+    <button ng-click="homeController.makeRequest(true, false)">Fail without local error handling</button>
     <ul>
         <li ng-repeat="item in homeController.items" ng-bind="item.name"></li>
     </ul>

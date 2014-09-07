@@ -1,14 +1,13 @@
 var express = require('express');
 
-var start = 0, user, fail, app = express(), _ = require('lodash');
+var start = 0, user, app = express(), _ = require('lodash');
 
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/src/app'));
 
 app.get('/rest/items', function (req, res) {
-    if (fail) {
+    if (req.param('fail')) {
         res.status(500).send();
-        fail = false;
     } else if (user) {
         res.send(createItems(start, 10));
         start += 10;
@@ -34,11 +33,6 @@ app.post('/rest/login', function (req, res) {
 
 app.post('/rest/logout', function (req, res) {
     res.send(user = undefined);
-});
-
-app.post('/rest/fail', function (req, res) {
-    fail = true;
-    res.send();
 });
 
 app.get('/rest/user', function (req, res) {

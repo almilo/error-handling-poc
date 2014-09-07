@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute'])
+angular.module('app', ['ngRoute', 'error-handling', 'session-handling'])
     .factory('applicationEventBus', function ($rootScope) {
         return {
             on: on,
@@ -48,36 +48,6 @@ angular.module('app', ['ngRoute'])
             applicationEventBus.fire('userLoginStateChanged', response.data);
         }
     })
-    .factory('unauthorizedInterceptor', function ($q, loginService, $injector) {
-        return {
-            responseError: function (rejection) {
-                return canRecover(rejection) ? retry(rejection) : reject(rejection);
-
-                function canRecover(rejection) {
-                    return rejection.status === 401;
-                }
-
-                function retry(rejection) {
-                    return loginService.login().then(retryRequest(rejection.config));
-
-                    function retryRequest(config) {
-                        return function () {
-                            var $http = $injector.get('$http');
-
-                            return $http(config);
-                        };
-                    }
-                }
-
-                function reject(rejection) {
-                    return $q.reject(rejection.statusText);
-                }
-            }
-        };
-    })
-    .config(function ($httpProvider) {
-        $httpProvider.interceptors.push('unauthorizedInterceptor');
-    })
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home', {
@@ -88,4 +58,9 @@ angular.module('app', ['ngRoute'])
             .otherwise({
                 redirectTo: '/home'
             });
+    })
+    .run(function (applicationEventBus) {
+        applicationEventBus.on('serverRequestFailed', function (rejection) {
+            alert('Global: ' + rejection.statusText);
+        })
     });
