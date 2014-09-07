@@ -1,27 +1,30 @@
 angular.module('app')
-    .directive('login', function ($http) {
+    .directive('login', function (loginService, applicationEventBus) {
         return {
             restrict: 'E',
             replace: true,
             scope: {},
-            template: '<div><button ng-click="doAction()" ng-bind="action()"></button></div>',
-            link: function (scope) {
-                scope.action = getAction;
+            template: '<div><button ng-click="loginController.performLoginAction()" ng-bind="loginController.getLoginAction()"></button></div>',
+            controllerAs: 'loginController',
+            controller: function () {
+                var controller = this;
 
-                scope.doAction = function () {
-                    var actionUrl = '/rest/' + getAction();
-
-                    $http.post(actionUrl).then(mapUser);
+                controller.getLoginAction = function () {
+                    return controller.user ? 'logout' : 'login';
                 };
 
-                $http.get('/rest/user').then(mapUser);
+                loginService.getUser().then(mapUser);
 
-                function getAction() {
-                    return scope.user ? 'logout' : 'login';
-                }
+                applicationEventBus.on('userLoginStateChanged', function (user) {
+                    controller.user = user;
+                });
+
+                controller.performLoginAction = function () {
+                    loginService[controller.getLoginAction()]();
+                };
 
                 function mapUser(response) {
-                    scope.user = response.data;
+                    controller.user = response.data;
                 }
             }
         };
