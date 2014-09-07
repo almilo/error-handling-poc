@@ -1,0 +1,10 @@
+{
+  "name": "error-handling-poc",
+  "version": "0.0.0",
+  "author": "Alberto Mijares <almilo@almilo.es>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.8.8",
+    "lodash": "^2.4.1"
+  }
+}
