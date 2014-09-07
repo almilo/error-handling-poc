@@ -68,6 +68,10 @@ angular.module('app', ['ngRoute'])
                         };
                     }
                 }
+
+                function reject(rejection) {
+                    return $q.reject(rejection.statusText);
+                }
             }
         };
     })

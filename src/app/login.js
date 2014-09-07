@@ -3,13 +3,12 @@ angular.module('app')
         return {
             restrict: 'E',
             replace: true,
-            scope: {},
-            template: '<div><button ng-click="loginController.performLoginAction()" ng-bind="loginController.getLoginAction()"></button></div>',
+            template: '<div><button ng-click="loginController.performAction()" ng-bind="loginController.getAction()"></button></div>',
             controllerAs: 'loginController',
             controller: function () {
                 var controller = this;
 
-                controller.getLoginAction = function () {
+                controller.getAction = function () {
                     return controller.user ? 'logout' : 'login';
                 };
 
@@ -19,8 +18,8 @@ angular.module('app')
                     controller.user = user;
                 });
 
-                controller.performLoginAction = function () {
-                    loginService[controller.getLoginAction()]();
+                controller.performAction = function () {
+                    loginService[controller.getAction()]();
                 };
 
                 function mapUser(response) {
