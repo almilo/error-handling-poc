@@ -1,10 +1,16 @@
 var express = require('express');
+var _ = require('lodash');
+var data = require('./data.json');
 
-var start = 0, user, app = express(), _ = require('lodash');
+var start = 0, user, app = express();
 
 app.use('/vendor', express.static(__dirname + '/bower_components'));
 app.use('/assets', express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/src/app'));
+
+app.get('/rest/service', function (req, res) {
+    res.json(data);
+});
 
 app.get('/rest/items', function (req, res) {
     if (req.param('fail')) {
@@ -25,8 +31,7 @@ app.get('/rest/items', function (req, res) {
             };
         });
     }
-})
-;
+});
 
 app.post('/rest/login', function (req, res) {
     res.send(user = 'Alberto');

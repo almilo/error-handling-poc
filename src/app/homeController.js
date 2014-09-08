@@ -27,5 +27,13 @@ angular.module('app')
             function clearItems() {
                 controller.items = [];
             }
-        }
+        };
+
+        this.deserializedRequest = function () {
+            $http.get('/rest/service').then(mapData);
+
+            function mapData(response) {
+                controller.data = response.data;
+            }
+        };
     });

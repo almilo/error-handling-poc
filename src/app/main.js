@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'error-handling', 'session-handling', 'messages'])
+angular.module('app', ['ngRoute', 'error-handling', 'session-handling', 'messages', 'serialization'])
     .factory('applicationEventBus', function ($rootScope) {
         return {
             on: on,

@@ -1,0 +1,70 @@
+{
+    "headers": {},
+    "_type": "Result",
+    "format": "normalized",
+    "payload": [
+        {
+            "_type": "PositionPTO",
+            "_shape": "standard",
+            "id": "3001",
+            "name": "POS ABBN 3001",
+            "quantity": "1200",
+            "asset": {
+                "_type": "AssetPTO",
+                "_shape": "reference",
+                "id": "2001"
+            },
+            "container": {
+                "_type": "ContainerPTO",
+                "_shape": "reference",
+                "id": "1001"
+            }
+        },
+        {
+            "_type": "PositionPTO",
+            "_shape": "standard",
+            "id": "3002",
+            "name": "POS NOVN 3002",
+            "quantity": "700",
+            "asset": {
+                "_type": "AssetPTO",
+                "_shape": "reference",
+                "id": "2002"
+            },
+            "container": {
+                "_type": "ContainerPTO",
+                "_shape": "reference",
+                "id": "1001"
+            }
+        }
+    ],
+    "dependencies": {
+        "ContainerPTO": {
+            "1001": {
+                "_type": "ContainerPTO",
+                "_shape": "standard",
+                "id": "1001",
+                "name": "MyContainer",
+                "key": "CONT.1001"
+            }
+        },
+        "AssetPTO": {
+            "2002": {
+                "_type": "AssetPTO",
+                "_shape": "standard",
+                "id": "2002",
+                "name": "Novartis",
+                "keyIsin": "CH0012005267",
+                "keySymbol": "NOVN"
+            },
+            "2001": {
+                "_type": "AssetPTO",
+                "_shape": "standard",
+                "id": "2001",
+                "name": "ABB",
+                "keyIsin": "CH0012221716",
+                "keySymbol": "ABBN"
+            }
+        }
+    }
+}

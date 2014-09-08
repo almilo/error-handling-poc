@@ -3,7 +3,9 @@
     <button ng-click="homeController.makeRequest(false, false)">Success without local error handling</button>
     <button ng-click="homeController.makeRequest(true, true)">Fail with local error handling</button>
     <button ng-click="homeController.makeRequest(true, false)">Fail without local error handling</button>
+    <button ng-click="homeController.deserializedRequest()">Deserialized request</button>
     <ul>
         <li ng-repeat="item in homeController.items" ng-bind="item.name"></li>
     </ul>
+    <div ng-bind="homeController.data | json"></div>
 </div>
