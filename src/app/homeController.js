@@ -1,5 +1,5 @@
 angular.module('app')
-    .controller('homeController', function ($http, withLocalErrorHandling) {
+    .controller('homeController', function ($http, withLocalErrorHandling, dialogService) {
         var controller = this;
 
         this.makeRequest = function (fail, localErrorHandling) {
@@ -7,7 +7,7 @@ angular.module('app')
                 withLocalErrorHandling(performCall).then(mapItems).catch(function (rejection) {
                         clearItems();
 
-                        alert('Local: ' + rejection.statusText);
+                        dialogService.showMessage('Server error', 'Local: ' + rejection.statusText);
                     }
                 );
             } else {

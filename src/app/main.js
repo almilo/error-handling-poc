@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute', 'error-handling', 'session-handling'])
+angular.module('app', ['ngRoute', 'error-handling', 'session-handling', 'messages'])
     .factory('applicationEventBus', function ($rootScope) {
         return {
             on: on,
@@ -59,8 +59,8 @@ angular.module('app', ['ngRoute', 'error-handling', 'session-handling'])
                 redirectTo: '/home'
             });
     })
-    .run(function (applicationEventBus) {
+    .run(function (applicationEventBus, dialogService) {
         applicationEventBus.on('serverRequestFailed', function (rejection) {
-            alert('Global: ' + rejection.statusText);
+            dialogService.showMessage('Server error', 'Global: ' + rejection.statusText);
         })
     });

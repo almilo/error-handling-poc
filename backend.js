@@ -3,6 +3,7 @@ var express = require('express');
 var start = 0, user, app = express(), _ = require('lodash');
 
 app.use('/vendor', express.static(__dirname + '/bower_components'));
+app.use('/assets', express.static(__dirname + '/assets'));
 app.use(express.static(__dirname + '/src/app'));
 
 app.get('/rest/items', function (req, res) {
