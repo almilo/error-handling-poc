@@ -1,0 +1,37 @@
+{
+    "headers": {},
+    "data": [
+        {
+            "id": "3001",
+            "name": "POS ABBN 3001",
+            "quantity": "1200",
+            "asset": {
+                "id": "2001",
+                "name": "ABB",
+                "keyIsin": "CH0012221716",
+                "keySymbol": "ABBN"
+            },
+            "container": {
+                "id": "1001",
+                "name": "MyContainer",
+                "key": "CONT.1001"
+            }
+        },
+        {
+            "id": "3002",
+            "name": "POS NOVN 3002",
+            "quantity": "700",
+            "asset": {
+                "id": "2002",
+                "name": "Novartis",
+                "keyIsin": "CH0012005267",
+                "keySymbol": "NOVN"
+            },
+            "container": {
+                "id": "1001",
+                "name": "MyContainer",
+                "key": "CONT.1001"
+            }
+        }
+    ]
+}

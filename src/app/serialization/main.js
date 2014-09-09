@@ -37,7 +37,7 @@ angular.module('serialization', [])
                 throw new Error('Object of type: "' + type + '" with id: "' + id + '" not found in: "' + JSON.stringify(dependencies) + '".');
             }
 
-            return cleanProperties(deserializePayload(referencedObject), ['_type', 'id']);
+            return cleanProperties(deserializePayload(referencedObject), ['_type']);
         }
 
         function getPropertyValue(serializedObject, propertyName) {
