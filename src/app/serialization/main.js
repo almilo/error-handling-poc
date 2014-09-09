@@ -44,7 +44,7 @@ angular.module('serialization', [])
             var attributeValue = serializedObject[propertyName];
 
             if (!attributeValue) {
-                throw new Error('Error deserializing object: "' + JSON.stringify(serializedObject) + '", no attibute: "' + propertyName + '" specified.');
+                throw new Error('Error deserializing object: "' + JSON.stringify(serializedObject) + '", no attribute: "' + propertyName + '" specified.');
             }
 
             return attributeValue;
