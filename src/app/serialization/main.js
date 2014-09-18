@@ -12,9 +12,9 @@ angular.module('serialization', [])
                 return _.map(payload, deserializePayload);
             }
 
-            if (_.isObject(payload)) {
+            if (_.isPlainObject(payload)) {
                 var deserializedObject = _.reduce(payload, function (result, propertyValue, propertyName) {
-                    var propertyIsReference = _.isObject(propertyValue) && getPropertyValue(propertyValue, '_shape') === 'reference';
+                    var propertyIsReference = _.isPlainObject(propertyValue) && getPropertyValue(propertyValue, '_shape') === 'reference';
 
                     result[propertyName] = propertyIsReference ? deserializeReference(propertyValue) : deserializePayload(propertyValue);
 
@@ -31,7 +31,7 @@ angular.module('serialization', [])
             var type = getPropertyValue(serializedObject, '_type'),
                 id = getPropertyValue(serializedObject, 'id'),
                 objectsOfType = dependencies[type],
-                referencedObject = objectsOfType && _.isObject(objectsOfType) && objectsOfType[id];
+                referencedObject = objectsOfType && _.isPlainObject(objectsOfType) && objectsOfType[id];
 
             if (!referencedObject) {
                 throw new Error('Object of type: "' + type + '" with id: "' + id + '" not found in: "' + JSON.stringify(dependencies) + '".');
@@ -73,7 +73,7 @@ angular.module('serialization', [])
             var deserializers = {
                     normalized: normalizedDeserializer
                 },
-                deserializer = _.isObject(data) && data._type === 'Result' ? deserializers[data.format] : _.identity;
+                deserializer = _.isPlainObject(data) && data._type === 'Result' ? deserializers[data.format] : _.identity;
 
             if (!deserializer) {
                 throw new Error('No deserializer could be found for format: "' + data.format + '".');

@@ -45,6 +45,6 @@ app.get('/rest/user', function (req, res) {
     res.send(user);
 });
 
-var server = app.listen(3000, function () {
+var server = app.listen(3333, function () {
     console.log('Listening on port %d', server.address().port);
 });
