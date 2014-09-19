@@ -21,7 +21,7 @@ angular.module('serialization', [])
                     return result;
                 }, {});
 
-                return cleanProperties(deserializedObject, ['_type', '_shape']);
+                return _.omit(deserializedObject, ['_type', '_shape']);
             }
 
             return payload;
@@ -29,7 +29,7 @@ angular.module('serialization', [])
 
         function deserializeReference(serializedObject) {
             var type = getPropertyValue(serializedObject, '_type'),
-                id = getPropertyValue(serializedObject, 'id'),
+                id = getPropertyValue(serializedObject, '_dependencyId'),
                 objectsOfType = dependencies[type],
                 referencedObject = objectsOfType && _.isPlainObject(objectsOfType) && objectsOfType[id];
 
@@ -37,7 +37,7 @@ angular.module('serialization', [])
                 throw new Error('Object of type: "' + type + '" with id: "' + id + '" not found in: "' + JSON.stringify(dependencies) + '".');
             }
 
-            return cleanProperties(deserializePayload(referencedObject), ['_type']);
+            return _.omit(deserializePayload(referencedObject), ['_type', '_dependencyId']);
         }
 
         function getPropertyValue(serializedObject, propertyName) {
@@ -48,16 +48,6 @@ angular.module('serialization', [])
             }
 
             return attributeValue;
-        }
-
-        function cleanProperties(deserializedObject, propertyNames) {
-            propertyNames = _.isString(propertyNames) ? [propertyNames] : propertyNames;
-
-            _.each(propertyNames, function (propertyName) {
-                delete deserializedObject[propertyName];
-            });
-
-            return deserializedObject;
         }
     })
     .config(function ($httpProvider, normalizedDeserializer) {
