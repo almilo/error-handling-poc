@@ -1,69 +1,204 @@
 {
-    "headers": {},
-    "_type": "Result",
-    "format": "normalized",
-    "payload": [
+    "_type":"Result",
+    "headers":{ },
+    "format":"normalized",
+    "payload":[
         {
-            "_type": "PositionPTO",
-            "_shape": "standard",
-            "id": "3001",
-            "name": "POS ABBN 3001",
-            "quantity": "1200",
-            "asset": {
-                "_type": "AssetPTO",
-                "_shape": "reference",
-                "id": "2001"
-            },
-            "container": {
-                "_type": "ContainerPTO",
-                "_shape": "reference",
-                "id": "1001"
+            "_type":"PositionPTO",
+            "_shape":"standard",
+            "id":1,
+            "name":"Position1",
+            "nameLong":"LongNameOfPosition1",
+            "type":"SECURITY",
+            "portfolioId":0,
+            "ipsIds":[ ],
+            "businessPartnerId":1,
+            "referenceCurrencyId":23,
+            "positionCurrencyId":88,
+            "quantity":106,
+            "iban":"IBAN1",
+            "rubric":"Rubric1",
+            "costPrice":107,
+            "currentPrice":105,
+            "currentPriceDate":1411117659816,
+            "costPriceExchangeRate":1.5,
+            "currentExchangeRate":1.5,
+            "currentValueInPositionCurrency":102,
+            "currentValueInReferenceCurrency":101,
+            "accruedInterestInPositionCurrency":104,
+            "accruedInterestInReferenceCurrency":103,
+            "asset":{
+                "_type":"AssetPTO",
+                "_shape":"reference",
+                "_dependencyId":"1"
             }
         },
         {
-            "_type": "PositionPTO",
-            "_shape": "standard",
-            "id": "3002",
-            "name": "POS NOVN 3002",
-            "quantity": "700",
-            "asset": {
-                "_type": "AssetPTO",
-                "_shape": "reference",
-                "id": "2002"
-            },
-            "container": {
-                "_type": "ContainerPTO",
-                "_shape": "reference",
-                "id": "1001"
+            "_type":"PositionPTO",
+            "_shape":"standard",
+            "id":2,
+            "name":"Position2",
+            "nameLong":"LongNameOfPosition2",
+            "type":"SECURITY",
+            "portfolioId":3,
+            "ipsIds":[ ],
+            "businessPartnerId":1,
+            "referenceCurrencyId":23,
+            "positionCurrencyId":88,
+            "quantity":206,
+            "iban":"IBAN2",
+            "rubric":"Rubric2",
+            "costPrice":207,
+            "currentPrice":205,
+            "currentPriceDate":1411117659823,
+            "costPriceExchangeRate":1.5,
+            "currentExchangeRate":1.5,
+            "currentValueInPositionCurrency":202,
+            "currentValueInReferenceCurrency":201,
+            "accruedInterestInPositionCurrency":204,
+            "accruedInterestInReferenceCurrency":203,
+            "asset":{
+                "_type":"AssetPTO",
+                "_shape":"reference",
+                "_dependencyId":"1"
+            }
+        },
+        {
+            "_type":"PositionPTO",
+            "_shape":"standard",
+            "id":3,
+            "name":"Position3",
+            "nameLong":"LongNameOfPosition3",
+            "type":"SECURITY",
+            "portfolioId":0,
+            "ipsIds":[ ],
+            "businessPartnerId":1,
+            "referenceCurrencyId":23,
+            "positionCurrencyId":88,
+            "quantity":306,
+            "iban":"IBAN3",
+            "rubric":"Rubric3",
+            "costPrice":307,
+            "currentPrice":305,
+            "currentPriceDate":1411117659823,
+            "costPriceExchangeRate":1.5,
+            "currentExchangeRate":1.5,
+            "currentValueInPositionCurrency":302,
+            "currentValueInReferenceCurrency":301,
+            "accruedInterestInPositionCurrency":304,
+            "accruedInterestInReferenceCurrency":303,
+            "asset":{
+                "_type":"AssetPTO",
+                "_shape":"reference",
+                "_dependencyId":"2"
+            }
+        },
+        {
+            "_type":"PositionPTO",
+            "_shape":"standard",
+            "id":4,
+            "name":"Position4",
+            "nameLong":"LongNameOfPosition4",
+            "type":"SECURITY",
+            "portfolioId":0,
+            "ipsIds":[ ],
+            "businessPartnerId":1,
+            "referenceCurrencyId":23,
+            "positionCurrencyId":88,
+            "quantity":406,
+            "iban":"IBAN4",
+            "rubric":"Rubric4",
+            "costPrice":407,
+            "currentPrice":405,
+            "currentPriceDate":1411117659823,
+            "costPriceExchangeRate":1.5,
+            "currentExchangeRate":1.5,
+            "currentValueInPositionCurrency":402,
+            "currentValueInReferenceCurrency":401,
+            "accruedInterestInPositionCurrency":404,
+            "accruedInterestInReferenceCurrency":403,
+            "asset":{
+                "_type":"AssetPTO",
+                "_shape":"reference",
+                "_dependencyId":"3"
+            }
+        },
+        {
+            "_type":"PositionPTO",
+            "_shape":"standard",
+            "id":5,
+            "name":"Position5",
+            "nameLong":"LongNameOfPosition5",
+            "type":"SECURITY",
+            "portfolioId":0,
+            "ipsIds":[ ],
+            "businessPartnerId":1,
+            "referenceCurrencyId":23,
+            "positionCurrencyId":88,
+            "quantity":506,
+            "iban":"IBAN5",
+            "rubric":"Rubric5",
+            "costPrice":507,
+            "currentPrice":505,
+            "currentPriceDate":1411117659823,
+            "costPriceExchangeRate":1.5,
+            "currentExchangeRate":1.5,
+            "currentValueInPositionCurrency":502,
+            "currentValueInReferenceCurrency":501,
+            "accruedInterestInPositionCurrency":504,
+            "accruedInterestInReferenceCurrency":503,
+            "asset":{
+                "_type":"AssetPTO",
+                "_shape":"reference",
+                "_dependencyId":"4"
             }
         }
     ],
-    "dependencies": {
-        "ContainerPTO": {
-            "1001": {
-                "_type": "ContainerPTO",
-                "_shape": "standard",
-                "id": "1001",
-                "name": "MyContainer",
-                "key": "CONT.1001"
-            }
-        },
-        "AssetPTO": {
-            "2002": {
-                "_type": "AssetPTO",
-                "_shape": "standard",
-                "id": "2002",
-                "name": "Novartis",
-                "keyIsin": "CH0012005267",
-                "keySymbol": "NOVN"
+    "dependencies":{
+        "AssetPTO":{
+            "1":{
+                "_type":"AssetPTO",
+                "_shape":"standard",
+                "id":1,
+                "name":"NestlÃ© Aktie very very very veeeeeeeeeeeeeeeeeery veeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeery long name",
+                "isin":"CH0038863350",
+                "riskCurrencyId":null,
+                "nominalCurrencyId":null,
+                "keyData":null,
+                "classData":null
             },
-            "2001": {
-                "_type": "AssetPTO",
-                "_shape": "standard",
-                "id": "2001",
-                "name": "ABB",
-                "keyIsin": "CH0012221716",
-                "keySymbol": "ABBN"
+            "2":{
+                "_type":"AssetPTO",
+                "_shape":"standard",
+                "id":2,
+                "name":"Roche Aktie",
+                "isin":"CH0012032113",
+                "riskCurrencyId":null,
+                "nominalCurrencyId":null,
+                "keyData":null,
+                "classData":null
+            },
+            "3":{
+                "_type":"AssetPTO",
+                "_shape":"standard",
+                "id":3,
+                "name":"3.125 UBS AG 14 (SBK) - 30.06.2014",
+                "isin":"CH0018740628",
+                "riskCurrencyId":null,
+                "nominalCurrencyId":null,
+                "keyData":null,
+                "classData":null
+            },
+            "4":{
+                "_type":"AssetPTO",
+                "_shape":"standard",
+                "id":4,
+                "name":"CS BF (Lux) High Yield US$ B",
+                "isin":"LU0116737759",
+                "riskCurrencyId":null,
+                "nominalCurrencyId":null,
+                "keyData":null,
+                "classData":null
             }
         }
     }
